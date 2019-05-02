@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" name="ti-analytics">
+    <Appenders>
+        <Socket name="socket" host="localhost" port="9200">
+            <JsonLayout properties="true"/>
+        </Socket>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="socket"/>
+        </Root>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,19 @@
+# Reference
+https://spring.io/guides/topicals/spring-boot-docker
+https://spring.io/guides/gs/spring-boot-docker/
+
+# Build
+./mvnw install dockerfile:build
+./mvn com.spotify:dockerfile-maven-plugin:build
+
+# Run
+docker run -p 8080:8080 -t lukeio/spring-boot-docker:latest
+
+# Run : Spring Profile Prod
+$ docker run -e "SPRING_PROFILES_ACTIVE=prod" -p 8080:8080 -t lukeio/spring-boot-docker:latest
+
+# Run : Spring Profile Dev
+$ docker run -e "SPRING_PROFILES_ACTIVE=dev" -p 8080:8080 -t lukeio/spring-boot-docker:latest
+
+# Run : Debug
+$ docker run -e "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n" -p 8080:8080 -p 5005:5005 -t lukeio/spring-boot-docker:latest
